@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"io"
 	"io/ioutil"
+	"math"
 	"strings"
 )
 
@@ -66,6 +67,15 @@ func (j *JSONQ) File(filename string) *JSONQ {
 	}
 	j.raw = bb
 	return j.decode() // handle error
+}
+
+func (j *JSONQ) JSON(data interface{}) *JSONQ {
+	var err error = nil
+	j.raw, err = json.Marshal(data)
+	if err != nil {
+		return j.addError(err)
+	}
+	return j.decode()
 }
 
 // JSONString reads the json content from valid json string
@@ -396,14 +406,20 @@ func (j *JSONQ) sortBy(property string, asc bool) *JSONQ {
 // Only collects the properties from a list of object
 func (j *JSONQ) Only(properties ...string) interface{} {
 	j.prepare()
+	fmt.Println(properties)
 	result := []interface{}{}
 	if aa, ok := j.jsonContent.([]interface{}); ok {
 		for _, am := range aa {
 			if mv, ok := am.(map[string]interface{}); ok {
 				tmap := map[string]interface{}{}
 				for _, prop := range properties {
-					if v, ok := mv[prop]; ok {
-						tmap[prop] = v
+					props := strings.Split(prop, ".")
+					if len(props) > 1 {
+						tmap[props[0]] = New().JSON(mv).From(props[0]).Only(props[1:]...)
+					} else {
+						if v, ok := mv[prop]; ok {
+							tmap[prop] = v
+						}
 					}
 				}
 				if len(tmap) > 0 {
@@ -474,19 +490,18 @@ func (j *JSONQ) Last() interface{} {
 
 // Nth returns the nth element of a list
 func (j *JSONQ) Nth(index int) interface{} {
-	if index == 0 {
-		j.addError(fmt.Errorf("index is not zero based"))
-		return empty
-	}
-
 	res := j.prepare().jsonContent
 	if arr, ok := res.([]interface{}); ok {
 		alen := len(arr)
+		if index == 0 {
+			j.addError(fmt.Errorf("index is not zero based"))
+			return empty
+		}
 		if alen == 0 {
 			j.addError(fmt.Errorf("list is empty"))
 			return empty
 		}
-		if abs(index) > alen {
+		if math.Abs(float64(index)) > float64(alen) {
 			j.addError(fmt.Errorf("index out of range"))
 			return empty
 		}
