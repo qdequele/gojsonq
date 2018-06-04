@@ -1,27 +1,30 @@
 gojsonq
 ===============
-[![Build Status](https://travis-ci.org/thedevsaddam/gojsonq.svg?branch=master)](https://travis-ci.org/thedevsaddam/gojsonq)
-[![Project status](https://img.shields.io/badge/version-v1.0.0-green.svg)](https://github.com/thedevsaddam/gojsonq/releases)
-[![Go Report Card](https://goreportcard.com/badge/github.com/thedevsaddam/gojsonq)](https://goreportcard.com/report/github.com/thedevsaddam/gojsonq)
-[![Coverage Status](https://coveralls.io/repos/github/thedevsaddam/gojsonq/badge.svg?branch=master)](https://coveralls.io/github/thedevsaddam/gojsonq?branch=master)
-[![GoDoc](https://godoc.org/github.com/thedevsaddam/gojsonq?status.svg)](https://godoc.org/github.com/thedevsaddam/gojsonq)
-[![License: CC0-1.0](https://img.shields.io/badge/License-CC0%201.0-lightgrey.svg)](https://github.com/thedevsaddam/gojsonq/blob/dev/LICENSE.md)
+[![Build Status](https://travis-ci.org/qdequele/gojsonq.svg?branch=master)](https://travis-ci.org/qdequele/gojsonq)
+[![Project status](https://img.shields.io/badge/version-v1.0.0-green.svg)](https://github.com/qdequele/gojsonq/releases)
+[![Go Report Card](https://goreportcard.com/badge/github.com/qdequele/gojsonq)](https://goreportcard.com/report/github.com/qdequele/gojsonq)
+[![Coverage Status](https://coveralls.io/repos/github/qdequele/gojsonq/badge.svg?branch=master)](https://coveralls.io/github/qdequele/gojsonq?branch=master)
+[![GoDoc](https://godoc.org/github.com/qdequele/gojsonq?status.svg)](https://godoc.org/github.com/qdequele/gojsonq)
+[![License: CC0-1.0](https://img.shields.io/badge/License-CC0%201.0-lightgrey.svg)](https://github.com/qdequele/gojsonq/blob/dev/LICENSE.md)
 
 A simple Go package to Query over JSON Data
 
+### Notice
+
+Original repo was from [thedevsaddam](https://github.com/qdequele/gojsonq/)
 
 ### Installation
 
 Install the package using
 ```go
-$ go get github.com/thedevsaddam/gojsonq
+$ go get github.com/qdequele/gojsonq
 ```
 
 ### Usage
 
 To use the package import it in your `*.go` code
 ```go
-import "github.com/thedevsaddam/gojsonq"
+import "github.com/qdequele/gojsonq"
 ```
 
 
@@ -669,10 +672,10 @@ fmt.Printf("Error: %v\nResult: %#v\n", err, res)
 ## Bugs and Issues
 
 If you encounter any bugs or issues, feel free to [open an issue at
-github](https://github.com/thedevsaddam/gojsonq/issues).
+github](https://github.com/qdequele/gojsonq/issues).
 
 Also, you can shoot me an email to
-<mailto:thedevsaddam@gmail.com> for hugs or bugs.
+<mailto:quentin@dequelen.me> for hugs or bugs.
 
 ## Credit
 
@@ -681,9 +684,10 @@ Special thanks to [Nahid Bin Azhar](https://github.com/nahid) for the inspiratio
 ## Contributors
 * [Lenin Hasda](https://github.com/leninhasda)
 * [Sadlil Rhythom](https://github.com/sadlil)
+* [Quentin de quelen](https://github.com/qdequele)
 
 ## Contribution
 If you are interested to make the package better please send pull requests or create an issue so that others can fix.
 [Read the contribution guide here](CONTRIBUTING.md)
 
-## See all [contributors](https://github.com/thedevsaddam/gojsonq/graphs/contributors)
+## See all [contributors](https://github.com/qdequele/gojsonq/graphs/contributors)
