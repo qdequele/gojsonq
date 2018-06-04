@@ -69,8 +69,9 @@ func (j *JSONQ) File(filename string) *JSONQ {
 	return j.decode() // handle error
 }
 
+//JSON reads the json content from valid json interface{}
 func (j *JSONQ) JSON(data interface{}) *JSONQ {
-	var err error = nil
+	var err error
 	j.raw, err = json.Marshal(data)
 	if err != nil {
 		return j.addError(err)
